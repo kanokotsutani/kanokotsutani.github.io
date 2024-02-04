@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>markdown的基本用法 | kanokotsutani</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="一个简单的博客" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>KANOKOTSUTANI</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;KANOKOTSUTANI</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>markdown的基本用法</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/12/16
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Markdown/" style="color: #03a9f4">Markdown</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="本篇参考"><a href="#本篇参考" class="headerlink" title="本篇参考"></a>本篇参考</h1><p><a target="_blank" rel="noopener" href="https://markdown.com.cn/basic-syntax/">Markdown官方教程</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JA411h7Gw/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=d5cad298b351640c7a33fa6c8e80f36fv">Markdown视频演示</a></p>
+<h2 id="使用编辑器"><a href="#使用编辑器" class="headerlink" title="使用编辑器"></a>使用编辑器</h2><p><a target="_blank" rel="noopener" href="https://stackedit.cn/">stackedit</a> </p>
+<p><a target="_blank" rel="noopener" href="https://markdown.com.cn/editor/">Markdown在线编辑器</a> </p>
+<hr>
+<h3 id="1-1-标题"><a href="#1-1-标题" class="headerlink" title="1.1 标题"></a>1.1 标题</h3><blockquote>
+<p>不同数量的<code>#</code>可以完成不同的标题，如下：</p>
+</blockquote>
+<h1 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h1><h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><hr>
+<h3 id="1-2-字体"><a href="#1-2-字体" class="headerlink" title="1.2 字体"></a>1.2 字体</h3><p><em>斜体</em>                              * *<br><strong>粗体</strong>                          ** **<br><em><strong>粗体加斜体</strong></em>             *** ***</p>
+<hr>
+<h3 id="1-3-无序列表"><a href="#1-3-无序列表" class="headerlink" title="1.3 无序列表"></a>1.3 无序列表</h3><p>无序列表的使用，在符号<code>-</code>后加空格使用。如下：</p>
+<ul>
+<li>无序列表1 </li>
+<li>无序列表2</li>
+<li>无序列表3</li>
+</ul>
+<p>如果要控制列表的层级，则需要在符号<code>-</code>前使用空格。如下：</p>
+<ul>
+<li>无序列表 1</li>
+<li>无序列表 2<ul>
+<li>无序列表 3</li>
+<li>无序列表 4</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="1-4-有序列表"><a href="#1-4-有序列表" class="headerlink" title="1.4 有序列表"></a>1.4 有序列表</h3><p>有序列表的使用，在数字及符号<code>.</code>后加空格后输入内容，如下：</p>
+<ol>
+<li>有序列表 1</li>
+<li>有序列表 2</li>
+<li>有序列表 3</li>
+</ol>
+<hr>
+<h3 id="1-5-引用"><a href="#1-5-引用" class="headerlink" title="1.5 引用"></a>1.5 引用</h3><p>引用的格式是在符号<code>&gt;</code>后面书写文字。如下：</p>
+<blockquote>
+<p>落日归山海<br>陪伴成告白</p>
+</blockquote>
+<hr>
+<h3 id="1-6-链接"><a href="#1-6-链接" class="headerlink" title="1.6 链接"></a>1.6 链接</h3><p>直接贴入URL<br>岛:<a target="_blank" rel="noopener" href="https://shen-yu.gitee.io/2019/ayer/">https://shen-yu.gitee.io/2019/ayer/</a></p>
+<blockquote>
+<p>   [名称]+(网址)</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://shen-yu.gitee.io/2019/ayer/">岛</a> </p>
+<hr>
+<h3 id="1-7-图片"><a href="#1-7-图片" class="headerlink" title="1.7 图片"></a>1.7 图片</h3><h6 id="推荐使用stackedfit来获取图片URl"><a href="#推荐使用stackedfit来获取图片URl" class="headerlink" title="推荐使用stackedfit来获取图片URl"></a>推荐使用stackedfit来获取图片URl</h6><p><a target="_blank" rel="noopener" href="https://stackedit.cn/app#/">stackedfit.cn</a>     </p>
+<h6 id="或者-Sunpics来获取Markdown地址"><a href="#或者-Sunpics来获取Markdown地址" class="headerlink" title="或者 Sunpics来获取Markdown地址"></a>或者 Sunpics来获取Markdown地址</h6><blockquote>
+<p>sunpics貌似寄掉了<br><a target="_blank" rel="noopener" href="https://pics.sunbangyan.cn/">SunPics</a>     </p>
+</blockquote>
+<p>替代：<a target="_blank" rel="noopener" href="https://p.sda1.dev/">流浪图床</a></p>
+<p><img src="https://p.sda1.dev/15/a66e421c81c50189188f5ae55cc4e35d/%E3%82%81%EF%BC%81_85766474_p2.jpg" alt="め！"></p>
+<hr>
+<h3 id="1-8-分割线"><a href="#1-8-分割线" class="headerlink" title="1.8 分割线"></a>1.8 分割线</h3><p>可以在一行中用三个以上的减号来建立一个分隔线，同时需要在分隔线的上面空一行。如下：‘—’</p>
+<hr>
+<h3 id="1-9-表格"><a href="#1-9-表格" class="headerlink" title="1.9 表格"></a>1.9 表格</h3><p>​<br>可以使用冒号来定义表格的对齐方式，如下：<br>​</p>
+<table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="center">年龄</th>
+<th align="right">工作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">小可爱</td>
+<td align="center">18</td>
+<td align="right">吃可爱多</td>
+</tr>
+<tr>
+<td align="left">小小勇敢</td>
+<td align="center">20</td>
+<td align="right">爬棵勇敢树</td>
+</tr>
+<tr>
+<td align="left">小小小机智</td>
+<td align="center">22</td>
+<td align="right">看一本机智书</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="1-10-脚注"><a href="#1-10-脚注" class="headerlink" title="1.10 脚注"></a>1.10 脚注</h3><p>链接：[文字]+(链接 “文字”)<br>脚注：[文字]+(脚注解释 “脚注名字”)</p>
+<pre><code>文字[^什么是文字]文字文字文字文字
+[^什么是文字]:写注释
+</code></pre>
+<p>前端<a href="%E6%98%AF%E6%8C%87%E7%BD%91%E7%AB%99%E6%88%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E9%83%A8%E5%88%86%EF%BC%8C%E4%B9%9F%E7%A7%B0%E4%B8%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82%E5%AE%83%E9%80%9A%E5%B8%B8%E7%94%B1HTML%E3%80%81CSS%E5%92%8CJavaScript%E7%AD%89%E6%8A%80%E6%9C%AF%E7%BB%84%E6%88%90%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E5%92%8C%E6%98%BE%E7%A4%BA%E4%BF%A1%E6%81%AF">^什么是前端</a><br>全栈工程师[^什么是全栈工程师]在业务开发流程中起到了至关重要的作用。</p>
+<p>[^什么是全栈工程师]:(是指掌握多种技能，并能利用多种技能独立完成产品的人。 “什么是全栈工程师”)在业务开发流程中起到了至关重要的作用。</p>
+<p>有人认为在<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Front-end_web_development" title="Front-end web development">大前端时代</a>的背景下，移动端开发（Android、IOS）将逐步退出历史舞台。</p>
+<hr>
+<h3 id="1-11-代码块-（首尾加上-）"><a href="#1-11-代码块-（首尾加上-）" class="headerlink" title="1.11 代码块 （首尾加上&#96;&#96;&#96;）"></a>1.11 代码块 （首尾加上&#96;&#96;&#96;）</h3><pre><code class="c++">#include&lt;iostream&gt;
+using name std;
+
+int main()
+&#123;
+cout&lt;&lt;&quot;你好世界&quot;&lt;&lt;ednl;
+return 0;
+&#125;
+</code></pre>
+<hr>
+<h3 id="嵌入视频"><a href="#嵌入视频" class="headerlink" title="嵌入视频"></a>嵌入视频</h3><iframe src="//player.bilibili.com/player.html?aid=953016431&bvid=BV1Qs4y1c7nb&cid=1112979385&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>如哔哩哔哩视频可复制嵌入码粘贴至此处</p>
+<hr>
+<h3 id="如何使用超链接"><a href="#如何使用超链接" class="headerlink" title="如何使用超链接"></a>如何使用超链接</h3><blockquote>
+<pre><code>[![](图片地址)](超链接地址)
+可以再叹号后的方口号后写入文字，当图片失效时会显示文字来代替图片。
+</code></pre>
+<p>例： <a target="_blank" rel="noopener" href="https://www.mikuclub.win/"><img src="https://p.sda1.dev/15/ded624132e94f2343cf14ac904a06378/5032-0K.png" alt="初音社"></a></p>
+</blockquote>
+<blockquote>
+<pre><code>&lt;a href =&quot;超链接地址&quot;&gt;&lt;img src=&quot;图片地址&quot;&gt;&lt;/a&gt;
+</code></pre>
+<p>例：<a href ="https://www.bilibili.com/"><img src="https://p.sda1.dev/15/7c60566fa936635f1acab2defd4678ab/屏幕截图 2024-01-13 210200.png"></a></p>
+</blockquote>
+<hr>
+<h2 id="个人哔哩哔哩主页"><a href="#个人哔哩哔哩主页" class="headerlink" title="个人哔哩哔哩主页"></a>个人哔哩哔哩主页</h2><p><img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.5--oSPe2rjAvuz2ZJH3JcwHaEK?w=294&h=180&c=7&r=0&o=5&pid=1.7" alt="哔哩哔哩"><br><a target="_blank" rel="noopener" href="https://space.bilibili.com/258843219?spm_id_from=333.1007.0.0%22%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E4%B8%BB%E9%A1%B5%22">哔哩哔哩</a></p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 kanokotsutani
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo=""
+    data-repo-id=""
+    data-category=""
+    data-category-id=""
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang=""
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>
