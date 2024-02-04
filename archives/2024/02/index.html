@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title> | kanokotsutani</title>
-    <meta name="author" content="John Doe" />
-    <meta name="description" content="一个简单的博客" />
+    <title>Archives | kanokotsutani</title>
+    <meta name="author" content="雫" />
+    <meta name="description" content="Have a good life！" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link rel="icon" href="/images/avatar.jpg" />
@@ -39,9 +39,7 @@
 
 
 
-
-
-
+<script src="/js/lib/search.js"></script>
 
 
 
@@ -153,35 +151,68 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1></h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/12/31
-        </span>
+            
+<div id="archives">
+    
+    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
+    
+    <div id="timeline-wrap" ref="timeline">
         
+        <div class="timeline" data-title="markdown的基本用法">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2023/12/16</div>
+                <a href="/2023/12/16/Markdown%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+                    <h3>markdown的基本用法</h3>
+                </a>
+                <div class="info">
+                    
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </span>
+                        
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Markdown/" style="color: #00a596">Markdown</a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="关于hexo主题的使用事项">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2024/2/5</div>
+                <a href="/2024/02/05/12,30/">
+                    <h3>关于Hexo主题的使用事项</h3>
+                </a>
+                <div class="info">
+                    
+                    
+                    <span class="tags">
+                        <span class="icon">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </span>
+                        
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Hexo/" style="color: #ffa2c4">Hexo</a>
+                        </span>
+                        
+                    </span>
+                    
+                </div>
+            </div>
+        </div>
         
     </div>
-    
-    <div class="content" v-pre>
-        <h3 id="好倒霉，手机摔了"><a href="#好倒霉，手机摔了" class="headerlink" title="好倒霉，手机摔了"></a>好倒霉，手机摔了</h3>
-    </div>
-    
-    
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
-    </div>
-    
-    
-    
-    
 </div>
 
             <footer id="footer">
@@ -192,7 +223,7 @@
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
-            &commat;John Doe
+            &commat;雫
         </div>
         <div>
             Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
@@ -212,29 +243,6 @@
         
     </div>
     <script src="/js/main.js"></script>
-    
-    
-<script
-    src="https://giscus.app/client.js"
-    data-repo=""
-    data-repo-id=""
-    data-category=""
-    data-category-id=""
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang=""
-    crossorigin
-    async
-></script>
-
-
-
-
-
     
 </body>
 </html>
