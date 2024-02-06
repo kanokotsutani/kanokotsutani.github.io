@@ -185,6 +185,36 @@
         <h3 id="ParticleX主题的使用以及问题"><a href="#ParticleX主题的使用以及问题" class="headerlink" title="ParticleX主题的使用以及问题"></a>ParticleX主题的使用以及问题</h3><blockquote>
 <p>非常感谢主题作者的帮助<br><img src="https://p.sda1.dev/15/d7cfb476a45cc553ab6c3b92e46cf920/QQ%E5%9B%BE%E7%89%8720240205002120.png"></p>
 </blockquote>
+<hr>
+<h4 id="将live2d搬入hexo博客页面"><a href="#将live2d搬入hexo博客页面" class="headerlink" title="将live2d搬入hexo博客页面"></a>将live2d搬入hexo博客页面</h4><p>这里收集了两篇写的帮助很大的教程</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/104282643">Hexo（sakura）添加live2d看板动画（可对话，换装互动）</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/c10udlnk/p/14727173.html">我的自定义多交互live2d折腾经历</a></p>
+<p>虽然但是我还是磨了一下午，各种百度，硬生生折腾到晚上。<br>但整体看下来过程也并不繁琐，可能会出现各种小问题。</p>
+<h3 id="一-选模型"><a href="#一-选模型" class="headerlink" title="一.选模型"></a>一.选模型</h3><p>推荐两个我成功引入过的<br><a target="_blank" rel="noopener" href="https://github.com/Eikanya/Live2d-model">Live2d-model</a><br><a target="_blank" rel="noopener" href="https://github.com/summerscar/live2dDemo">live2dDemo</a></p>
+<h3 id="二-使用"><a href="#二-使用" class="headerlink" title="二.使用"></a>二.使用</h3><p>1.在博客根目录git bash here下载live2d插件</p>
+<p><code>npm install --save hexo-helper-live2d</code></p>
+<p>2.在主目录下新建 <strong>live2d_models&#x2F;</strong> 文件夹，将需要的模型复制到此处</p>
+<p>3.将官方配置的贴入博客目录的_config.yml文件末尾,可按需改动</p>
+<pre><code class="live2d:">  enable: true
+  scriptFrom: local ##主目录
+  pluginRootPath: live2d_models/ ##模型目录
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-koharu ##对应的模型名称
+  display:
+    position: left ##居右
+    width: 80 ##宽度
+    height: 120 ##高度
+  mobile:
+    show: true ##移动端是否显示
+  react:
+    opacity: 0.7
+</code></pre>
+<p>4.将复制模型名字复制粘贴入use: lafei (根据你所需要的模型填入<br><code>use: laffei</code></p>
+<p>5.完成之后发布hexo</p>
+<hr>
 
     </div>
     
@@ -252,6 +282,6 @@
 
 
     
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"live2d_models/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/live2d_models/Bronya.model.json"},"display":{"position":"left","width":430,"height":450},"mobile":{"show":true},"react":{"opacity":0.9},"trailing_html":true});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"live2d_models/","tagMode":false,"log":false,"model":{"jsonPath":"/null"},"display":{"position":"left","width":430,"height":450},"mobile":{"show":true},"react":{"opacity":0.9},"trailing_html":true});</script></body>
 </html>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1357953768&auto=1&height=66" style="position: fixed; bottom: 20px; right: 20px;"></iframe>
